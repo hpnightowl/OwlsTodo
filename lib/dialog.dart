@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:owlstask/todo_data.dart';
+import 'package:owlstask/data.dart';
 
 class NewTodoDialog extends StatelessWidget {
   final controller = new TextEditingController();
