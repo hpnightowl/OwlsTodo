@@ -29,13 +29,23 @@ class _HomeState extends State<Home> {
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-          appBar: AppBar(
-            title: Text('Todo List'),
+          bottomNavigationBar: BottomAppBar(
+            elevation: 6.0,
+            shape: CircularNotchedRectangle(),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+                IconButton(icon: Icon(Icons.more_vert), onPressed:() {})
+              ],
+            ),
           ),
           body: TodoList(
            todos: todos,
            onTodoToggle: _toggleTodo,
           ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             onPressed: _addTodo,
