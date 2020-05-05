@@ -10,37 +10,37 @@ class _TodoListState extends State<TodoList> {
      List<Todo> todos = [];
      TextEditingController controller = new TextEditingController();
 
-     _addTodo() {
-            showDialog(
+       _addTodo() async {
+              final todo = await showDialog<Todo>(
                   context: context,
-                  builder: (BuildContext context) {
-                return AlertDialog(
+                  builder: (BuildContext context)
+            {
+              return AlertDialog(
                   title: Text('New todo'),
-                  content: TextField(controller: controller),
-                              actions: <Widget>[
-                            FlatButton(
-                               child: Icon(Icons.cancel),
-                                   onPressed: () {
-                                     Navigator.of(context).pop();
-                                   },
-                                 ),
-                                 FlatButton(
-                                   child: Icon(Icons.add),
-                                   onPressed: () {
-                                     setState(() {
-                                        final todo = new Todo(title: controller.value.text);
-                                        todos.add(todo);
-                                        controller.clear();
-                                        Navigator.of(context).pop();
-                                       },
-                                     );
-                                   },
-                                 ),
-                              ],
-                    );
-              },
-            );
+                  content: TextField(
+                    controller: controller,
+                    autofocus: true,
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      child: Icon(Icons.cancel),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    FlatButton(
+                        child: Icon(Icons.add),
+                        onPressed: () {
+                          final todo = new Todo(title: controller.value.text);
+                          todos.add(todo);
+                          controller.clear();
+                          Navigator.of(context).pop();
+                        }
+                    )
+                  ]
+              );
           }
+            );
      _toggleTodo(Todo todo, bool isChecked) {
            todo.isDone = isChecked;
            setState(() {
