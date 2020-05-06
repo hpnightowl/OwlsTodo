@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:owlstask/data.dart';
 
 class NewTodoDialog extends StatelessWidget {
@@ -14,17 +15,16 @@ class NewTodoDialog extends StatelessWidget {
       ),
       actions: <Widget>[
         FlatButton(
-          child: Icon(Icons.add),
+          child: Text('Cancel'),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         FlatButton(
-          child: Icon(Icons.cancel),
+          child: Text('Add'),
           onPressed: () {
             final todo = new Todo(title: controller.value.text);
             controller.clear();
-
             Navigator.of(context).pop(todo);
           },
         ),

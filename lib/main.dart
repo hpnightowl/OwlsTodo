@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:owlstask/Home.dart';
-void main() => runApp(MyTasks());
+import 'package:flutter/services.dart';
 
+import 'package:owlstask/home.dart';
+
+void main() {
+  SystemChrome.setEnabledSystemUIOverlays([]);
+  runApp(MyTasks());
+}
 
 class MyTasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      title: 'Todo List',
+      home: TodoListScreen(),
     );
   }
 }

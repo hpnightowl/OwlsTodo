@@ -4,4 +4,3 @@ class Todo {
   String title;
   bool isDone;
 }
-
